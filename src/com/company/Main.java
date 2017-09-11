@@ -16,14 +16,14 @@ public class Main {
         nums[2] = cin.nextDouble();
         double x=0,y=0;
         com.company.Basic.FirstTask();
-        SecondTask(nums);
+        com.company.Basic.SecondTask(nums);
         //ThirdTask(new int[]{1,2,5});
         //FourthTask(nums[0],nums[1],nums[2]);
         //FifthTask(nums[0],nums[1],nums[2]);
         /*SixthTask(10,12,0,
                 4, 11,0,x,y);
         System.out.printf("y= %.5f, x= %.5f\n",y,x);*/
-        System.out.printf( "%.20f",SeventhTask(nums[0],nums[1]));
+        System.out.printf( "%.20f",com.company.Basic.SeventhTask(nums[0],nums[1]));
 
     }
 }
