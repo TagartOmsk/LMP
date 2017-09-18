@@ -38,7 +38,7 @@ public class UnlimitedArrayWorks {
         return count;
     }
 
-    public static int NumbersWithinSegment(int[] arr,int a,int b){
+    public static int NumbersWithinSegment(int[] arr,double a,double b){
         int count=0;
         for(int i=0;i<arr.length;i++){
             if((arr[i]>=a)&&(arr[i]<=b))count++;
