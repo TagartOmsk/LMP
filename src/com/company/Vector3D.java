@@ -3,6 +3,19 @@ import com.company.Point3D;
 
 public class Vector3D {
     private double x,y,z;
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
     public Vector3D(){
         this.x=0;
         this.y=0;
