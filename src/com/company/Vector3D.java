@@ -4,6 +4,18 @@ import com.company.Point3D;
 public class Vector3D {
     private double x,y,z;
 
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void setZ(double z) {
+        this.z = z;
+    }
+
     public double getX() {
         return x;
     }
