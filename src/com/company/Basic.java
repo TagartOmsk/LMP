@@ -25,17 +25,17 @@ public class Basic {
         System.out.println(nums[1]);
         System.out.println(nums[2]);
     }
-
+    //добавить обработку нулей
     public static void FourthTask(double a,double b,double c){
         double d=b*b-4*a*c;
         if(d==0){
             System.out.println("Один корень");
-            System.out.println(-b/2*a);
+            System.out.println(-b/(2*a));
         }else{
             if(d>0){
                 System.out.println("Два корня");
-                System.out.println(-b+Math.sqrt(d)/2*a);
-                System.out.println(-b-Math.sqrt(d)/2*a);
+                System.out.println((-b+Math.sqrt(d))/(2*a));
+                System.out.println((-b-Math.sqrt(d))/(2*a));
             }else{
                 System.out.println("Complex roots, I'm bad at algebra");
             }
@@ -45,16 +45,39 @@ public class Basic {
     public static void FifthTask(double a,double b, double step) {
         int j=0;
         double res=0.0;
-        for(double i = a; i < b; i += step ){
-            res=Math.sin(i);
-            System.out.printf("%12.6f", res);
-            j++;
-            if(j==10){
-                j=0;System.out.println();
+        if(step==0){
+            System.out.println("Step can't be equal to zero!!");
+            return;
+        }
+        if(a<b&&step<0){
+            System.out.println("Incorrect values");
+            return;
+        }else{
+            for(double i = a; i < b; i += step ){
+                res=Math.sin(i);
+                System.out.printf("%12.6f", res);
+                j++;
+                if(j==10){
+                    j=0;System.out.println();
+                }
             }
         }
-    }
+        if(a>b&&step>0){
+            System.out.println("Incorrect values");
+            return;
+        }else{
+            for(double i = a; i > b; i += step ){
+                res=Math.sin(i);
+                System.out.printf("%12.6f", res);
+                j++;
+                if(j==10){
+                    j=0;System.out.println();
+                }
+            }
+        }
 
+    }
+    //переписать
     public static double[] SixthTask (double a1, double b1, double c1, double a2, double b2, double c2)
     {
         double x = 0;
@@ -119,14 +142,30 @@ public class Basic {
     public static double SeventhTask(double x, double precision){
         double sum1=0,next;
         int count=0;
-        next=(Math.pow(x,count)/factorial(count));
+        next=1;
         sum1+=next;
-        while(next>=precision){
+        while(Math.abs(next)>=precision){
             count++;
-            next=(Math.pow(x,count)/factorial(count));
+            next*=x/count;
             sum1+=next;
         }
         return sum1;
     }
+
+    /*public static double[] lineEquation(double a1, double b1, double c1, double a2,double b2, double c2){
+        //a1x+b1y=c1
+        //a2x+a2y=c2
+        double x,y;
+        if(a1==0&&b1==0){
+            return null;
+        }
+        if(a2==0&&b2==0){
+            return null;
+        }
+        while(a1!=0||a2!=0||b1!=0||b2!=0){
+            Math.max(a1,a2)=Math.max(a1,a2)
+        }
+
+    }*/
 
 }
