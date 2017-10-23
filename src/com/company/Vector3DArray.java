@@ -45,9 +45,13 @@ public class Vector3DArray {
     }
     public Vector3D linearCombination(double[] args)throws InequalLengthsOfArrays{
         if(array.length!=args.length)throw new InequalLengthsOfArrays();
-        Vector3D result= new Vector3D();
+        Vector3D result = new Vector3D();
         for(int i=0;i<array.length;i++){
-            result=Vector3DProcessor.sum(result,new Vector3D(args[i]*array[i].getX(),args[i]*array[i].getY(),args[i]*array[i].getZ()));
+            result=Vector3DProcessor.sum(result,new Vector3D(
+                    args[i]*array[i].getX(),
+                    args[i]*array[i].getY(),
+                    args[i]*array[i].getZ())
+            );
         }
         return result;
     }

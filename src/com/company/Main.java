@@ -12,33 +12,25 @@ public class Main {
 
 
     public static void main(String[] args) {
-        int nums[]=new int[3];
+        int nums[]=new int[6];
+        double []xy= new double[2];
         Scanner cin= new Scanner(System.in);
-       /* nums[0] = cin.nextInt();
-        nums[1] = cin.nextInt();
-        nums[2] = cin.nextInt();*/
-        //nums[3] = cin.nextInt();
-        //nums[4] = cin.nextInt();
-        //nums[5] = cin.nextInt();
-        double[] xy = new double[2];
-        //xy=Basic.lineEquation(nums[0],nums[1],nums[2],nums[3],nums[4],nums[5]);
-        //System.out.printf("x=%f, y=%f",xy[0],xy[1]);
-     /*TODO   Basic.FourthTask(0,0,0);
-        Basic.FourthTask(0,0,13);
-        Basic.FourthTask(0,2,3);
-        Basic.FourthTask(3,-9,6);
-        Basic.FourthTask(1,4,4);
-        Basic.FourthTask(1,2,3);
-        Basic.FourthTask(2,-8,0);*/
+        String test1 = "Omae wa mou shindeiru!!";
+        String test2 = "";
+        String test3 = "ы";
+        String test4,test5,test6;
+        //test4 = cin.next();
+//        test5 = cin.next();
+//        test6= cin.next();
+//        try
+//        {
+//            StringProcessor.StringCopier(test3,-2);
+//        }catch(Exception e){
+//            System.out.println(e);
+//        }
 
-      // Basic.FifthTask(0,0,0);
-      // Basic.FifthTask(0,1, 0);
-      //    Basic.FifthTask(0,1, -0.1);
-       // Basic.FifthTask(2,1, -0.1);
-        //Basic.FifthTask(0,1, 0.1);
-      //Basic.FifthTask(2,1, 0.1);
+//        System.out.println(StringProcessor.NumberOfEntries("XXXXXXX","XXX"));
 
-//        System.out.println( Basic.SeventhTask(1, 0.000001));
-//        System.out.println( Basic.SeventhTask(-1,0.000001));
+        System.out.println(StringProcessor.NumsIntoChars("1 2 3 4 5 "));
     }
 }

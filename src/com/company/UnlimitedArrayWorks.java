@@ -3,9 +3,11 @@ import java.util.Scanner;
 
 public class UnlimitedArrayWorks {
     public static void DisplayArray(int arr[]){
+        System.out.println();
         for(int i=0;i<arr.length;i++){
-            System.out.printf("%d\n",arr[i]);
+            System.out.printf("%d ",arr[i]);
         }
+        System.out.println();
     }
 
 
@@ -40,15 +42,20 @@ public class UnlimitedArrayWorks {
 
     public static int NumbersWithinSegment(int[] arr,double a,double b){
         int count=0;
-        for(int i=0;i<arr.length;i++){
-            if((arr[i]>=a)&&(arr[i]<=b))count++;
-        }
+        if(a<=b)
+            for(int i=0;i<arr.length;i++){
+                if((arr[i]>=a)&&(arr[i]<=b))count++;
+            }
+        else
+            for(int i=0;i<arr.length;i++){
+                if((arr[i]>=b)&&(arr[i]<=a))count++;
+            }
         return count;
     }
 
-    public static boolean IsArrayEven(int[] arr){
+    public static boolean IsArrayPositive(int[] arr){
         for(int i=0;i<arr.length;i++){
-            if(arr[i]%2!=0)return false;
+            if(arr[i]<=0)return false;
         }
         return true;
     }

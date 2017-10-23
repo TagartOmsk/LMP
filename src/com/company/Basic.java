@@ -27,6 +27,15 @@ public class Basic {
     }
     //добавить обработку нулей
     public static void FourthTask(double a,double b,double c){
+        if(a==0&&b!=0){
+            System.out.println("Один корень");
+            System.out.println(-c/b);
+            return;
+        }
+        if(a==0&&b==0){
+            System.out.println("Невозможно вычислить корни");
+            return;
+        }
         double d=b*b-4*a*c;
         if(d==0){
             System.out.println("Один корень");
@@ -37,7 +46,7 @@ public class Basic {
                 System.out.println((-b+Math.sqrt(d))/(2*a));
                 System.out.println((-b-Math.sqrt(d))/(2*a));
             }else{
-                System.out.println("Complex roots, I'm bad at algebra");
+                System.out.println("Все корни комплексные");
             }
         }
     }
@@ -77,66 +86,91 @@ public class Basic {
         }
 
     }
-    //переписать
-    public static double[] SixthTask (double a1, double b1, double c1, double a2, double b2, double c2)
-    {
-        double x = 0;
-        double y = 0;
-        if (a1 == 0 && b1 == 0) {
-            System.out.println("SORRE, LINE EX NE VICHISLYAETSYA");
-        } else if (a2 == 0 && b2 == 0) {
-            System.out.println("SORRE, LINE EX NE VICHISLYAETSYA");
-        } else if (a1 != 0){
-            while (a1 != 0 && a2 != 0) {
-                if (a1 > a2) {
-                    a1 = a1 - a2;
-                    b1 = b1 - b2;
-                    c1 = c1 - c2;
-                } else {
-                    a2 = a2 - a1;
-                    b2 = b2 - b1;
-                    c2 = c2 - c1;
-                }
+    public static void SixthTask(
+            double a1, double b1, double c1,
+            double a2, double b2, double c2
+    ){
+
+        double delta = a1 * b2 - a2 * b1;
+        double x = c1 * b2 - c2 * b1;
+        double y = c2 * a1 - c1 * a2;
+
+        if (c1 == 0 && c2 == 0) {
+            if (a1 == 0 && b1 == 0 && a2 == 0 && b2 == 0) {
+                System.out.println("Бесконечное количество решений (R^2).");
             }
-            if (a1 == 0) {
-                y = c1 / b1;
-                x = (c2 - b2 * y) / a2;
-            } else {
-                y = c2 / b2;
-                x = (c1 - b1 * y) / a1;
+            else if ( (a1 == 0 && b1 != 0 && a2 == 0 && b2 == 0) || (a2 == 0 && b2 != 0 && a1 == 0 && b1 == 0) ) {
+                System.out.println("Решение системы: x - любое, y = 0.");
+            }
+            else if ( (a1 != 0 && b1 == 0 && a2 == 0 && b2 == 0) || (a2 != 0 && b2 == 0 && a1 == 0 && b1 == 0) ) {
+                System.out.println("Решение системы: y - любое, x = 0.");
+            }
+            else if ( (a1 != 0 && b1 != 0 && a2 == 0 && b2 == 0) || (a1 == 0 && b1 == 0 && a2 != 0 && b2 != 0) ) {
+                System.out.println("Решение системы: y - любое, x = -y.");
+            }
+            else {
+                x = 0; y = 0;
+                System.out.println("Решение системы: x = " + x + "; y = " + y + ";");
             }
         } else {
-            while (b1 != 0 && b2 != 0) {
-                if (b1 > b2) {
-                    a1 = a1 - a2;
-                    b1 = b1 - b2;
-                    c1 = c1 - c2;
-                } else {
-                    a2 = a2 - a1;
-                    b2 = b2 - b1;
-                    c2 = c2 - c1;
+            if (delta != 0) {
+                x = x / delta;
+                y = y / delta;
+                System.out.println("Решение системы: x = " + x + "; y = " + y + ";");
+            } else {
+                if ((x != 0) || (y != 0)) {
+                    System.out.println("Решений нет.");
+                } else if ((x == 0) && (y == 0)) {
+                    if (((a1 == 0) && (b1 == 0) && (c1 != 0)) || ((a2 == 0) && (b2 == 0) && (c2 != 0))) {
+                        System.out.println("Решений нет.");
+                    }
+                    if ((a1 == 0 && b1 != 0 && c1 != 0) || (a2 == 0 && b2 != 0 && c2 != 0)) {
+                        if (b1 == 0) {
+                            y = c2 / b2;
+                        } else {
+                            y = c1 / b1;
+                        }
+                        System.out.println("Решение системы: y = " + y);
+                    }
+                    if ((a1 != 0 && b1 == 0 && c1 != 0) || (a2 != 0 && b2 == 0 && c2 != 0)) {
+                        if (a1 == 0) {
+                            x = c2 / a2;
+                        } else {
+                            x = c1 / a1;
+                        }
+                        System.out.println("Решение системы: x = " + x);
+                    }
+                    if ((a1 / a2 == b1 / b2) && (c1 / c2 == b1 / b2)) {
+                        if (a2/a1 == 0) {
+                            System.out.println("Решение системы бесконечно: (" + a1 + ")x + (" + b1 + ")y = " + c1);
+                        } else if (a1/a2 == 0) {
+                            System.out.println("Решение системы бесконечно: (" + a2 + ")x + (" + b2 + ")y = " + c2);
+                        } /*else if () {
+                        }*/
+                        else {
+                            double temp = 0;
+                            if (a1 / a2 > 1) {
+                                temp = a2;
+                                a2 /= temp;
+                                b2 /= temp;
+                                c2 /= temp;
+                                a1 = a2; b1 = b2; c1 = c2;
+                            }
+                            else {
+                                temp = a1;
+                                a1 /= temp;
+                                b1 /= temp;
+                                c1 /= temp;
+                            }
+                            System.out.println("Решение системы бесконечно: (" + a1 + ")x + (" + b1 + ")y = " + c1);
+                        }
+                    }
+                    if ((a1 / a2 == b1 / b2) && (c1 / c2 != b1 / b2)) {
+                        System.out.println("Решений нет.");
+                    }
                 }
             }
-            if (b1 == 0) {
-                x = c1 / a1;
-                y = (c2 - a2 * x) / b2;
-            } else {
-                x = c2 / a2;
-                y = (c1 - a1 * x) / b1;
-            }
         }
-        double[] arr = {x,y};
-        return arr;
-    }
-
-    private static double factorial(int arg){
-        double result=1;
-        if(arg==0)return result;
-        else
-            for(int i=arg;i>0;i--){
-                result*=i;
-            }
-        return result;
     }
 
     public static double SeventhTask(double x, double precision){
@@ -151,21 +185,4 @@ public class Basic {
         }
         return sum1;
     }
-
-    /*public static double[] lineEquation(double a1, double b1, double c1, double a2,double b2, double c2){
-        //a1x+b1y=c1
-        //a2x+a2y=c2
-        double x,y;
-        if(a1==0&&b1==0){
-            return null;
-        }
-        if(a2==0&&b2==0){
-            return null;
-        }
-        while(a1!=0||a2!=0||b1!=0||b2!=0){
-            Math.max(a1,a2)=Math.max(a1,a2)
-        }
-
-    }*/
-
 }

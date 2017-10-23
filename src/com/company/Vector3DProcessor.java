@@ -13,7 +13,11 @@ public class Vector3DProcessor {
         return (A.getX()*B.getX()+A.getY()*B.getY()+A.getZ()*B.getZ());
     }
     public static Vector3D vectorMultiplication(Vector3D A, Vector3D B){
-        return new Vector3D(A.getY()*B.getZ()-A.getZ()*B.getY(),A.getZ()*B.getX()-A.getX()*B.getZ(),A.getX()*B.getY()-A.getY()*B.getX());
+        return new Vector3D(
+                A.getY()*B.getZ()-A.getZ()*B.getY(),
+                A.getZ()*B.getX()-A.getX()*B.getZ(),
+                A.getX()*B.getY()-A.getY()*B.getX()
+        );
     }
     public static boolean isCollinear(Vector3D A, Vector3D B){
         Vector3D res = vectorMultiplication(A,B);
