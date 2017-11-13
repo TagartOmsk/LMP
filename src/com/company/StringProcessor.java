@@ -61,5 +61,36 @@ public class StringProcessor {
         origin = origin.replace("0","ноль");
         return origin;
     }
-
+    public static void RemoveEvens(StringBuilder origin){
+        for (int i = 0; i < origin.length(); i++)
+            origin.deleteCharAt(i);
+    }
+    public static void Swap(StringBuilder origin){
+        char separator=' ';
+        String first,last;
+        int firstBeg=0,firstEnd=0,lastEnd=origin.length()-1,lastBeg=origin.length()-1;
+        if(origin.length()==0)return;
+        while(firstBeg < origin.length() && origin.charAt(firstBeg)==separator){
+            firstBeg++;
+        }
+        firstEnd=firstBeg;
+        while(firstEnd < origin.length() && origin.charAt(firstEnd)!=separator){
+            firstEnd++;
+        }
+        if(firstEnd==origin.length())return;
+        //firstEnd--;
+        while(origin.charAt(lastEnd)==separator){
+            lastEnd--;
+        }
+        lastBeg=lastEnd;
+        lastEnd++;
+        while(origin.charAt(lastBeg)!=separator){
+            lastBeg--;
+        }
+        lastBeg++;
+        first = origin.substring(firstBeg,firstEnd);
+        last = origin.substring(lastBeg,lastEnd);
+        origin.replace(lastBeg,lastEnd,first);
+        origin.replace(firstBeg,firstEnd,last);
+    }
 }

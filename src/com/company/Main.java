@@ -15,22 +15,20 @@ public class Main {
         int nums[]=new int[6];
         double []xy= new double[2];
         Scanner cin= new Scanner(System.in);
-        String test1 = "Omae wa mou shindeiru!!";
-        String test2 = "";
-        String test3 = "ы";
-        String test4,test5,test6;
-        //test4 = cin.next();
-//        test5 = cin.next();
-//        test6= cin.next();
-//        try
-//        {
-//            StringProcessor.StringCopier(test3,-2);
-//        }catch(Exception e){
-//            System.out.println(e);
-//        }
+        StringBuilder test1 = new StringBuilder("Omae wa mou shindeiru!!");
+        StringBuilder test2 = new StringBuilder("=");
+        StringBuilder test3 = new StringBuilder("==ph'nglui===mglw'nafh===cthulhu====r'lyeh======wgah'nagl=====fhtagn=====");
+        try{
+            Payment a = new Payment("Летов Игорь Федорович",3,12,2015,220000);
+            System.out.println(a.toString());
+        } catch(Exception e){
+            System.out.println(e);
+        } catch (com.company.incorrectDate incorrectDate) {
+            incorrectDate.printStackTrace();
+        } catch (com.company.paymentIsLessOrEqualToZero paymentIsLessOrEqualToZero) {
+            paymentIsLessOrEqualToZero.printStackTrace();
+        }
 
-//        System.out.println(StringProcessor.NumberOfEntries("XXXXXXX","XXX"));
 
-        System.out.println(StringProcessor.NumsIntoChars("1 2 3 4 5 "));
     }
 }
