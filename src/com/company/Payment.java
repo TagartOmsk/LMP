@@ -1,7 +1,7 @@
 package com.company;
-class paymentIsLessOrEqualToZero extends Throwable{
+class invalidSum extends Throwable{
 
-    public paymentIsLessOrEqualToZero() {
+    public invalidSum() {
         super("Payment amount must be at least more than 0.01");
     }
 }
@@ -17,7 +17,7 @@ public class Payment {
     //сумма в копейках
     int sum;
 
-    public Payment(String name, int day, int month, int year, int sum)throws incorrectDate,paymentIsLessOrEqualToZero{
+    public Payment(String name, int day, int month, int year, int sum)throws incorrectDate,invalidSum{
         this.fio = name;
         if(day<1||day>31) throw new incorrectDate();
         this.day=day;
@@ -25,18 +25,20 @@ public class Payment {
         this.month=month;
         if(year<1970) throw new incorrectDate();
         this.year=year;
-        if(sum<=0) throw new paymentIsLessOrEqualToZero();
+        if(sum<=0) throw new invalidSum();
         this.sum=sum;
     }
 //rонструктор по строке
-    //TODO
-    /*public Payment(String origin){
-        int day,month,year,sum;
-        String name;
-        int name1=origin.indexOf("Name:")+6, name2=origin.indexOf(", date:");
-        name = origin.substring(name1,name2);
-        day= new Integer(origin.substring(origin.indexOf("date: ")+7),)
-    }*/
+
+    public Payment(String origin){
+        String[] z=origin.split(";");
+        this.fio = z[0];
+        this.sum = Integer.parseInt(z[2]);
+        String[] date = z[1].split("[.]");
+        this.day = Integer.parseInt(date[0]);
+        this.month = Integer.parseInt(date[1]);
+        this.year = Integer.parseInt(date[2]);
+    }
 
     public String getFio() {
         return fio;
@@ -104,6 +106,10 @@ public class Payment {
 
     @Override
     public String toString() {
-        return "Payer Name: "+fio+", date: "+day+"."+month+"."+year+", amount of payment: "+sum/100.00;
+        return "Плательщик:"+fio+", Дата: "+day+"."+month+"."+year+" Сумма: "+sum/100+" руб. "+sum%100+" коп.";
+    }
+
+    String toFileString(){
+        return fio+";"+day+"."+month+"."+year+";"+sum;
     }
 }
