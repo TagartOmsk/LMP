@@ -1,4 +1,4 @@
-package com.company;
+package ru.omsu.imit.september;
 import java.util.Scanner;
 
 public class UnlimitedArrayWorks {

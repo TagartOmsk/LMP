@@ -1,5 +1,4 @@
-package com.company;
-import com.company.Vector3D;
+package ru.omsu.imit.september;
 
 public class Vector3DArray {
     Vector3D[] array;

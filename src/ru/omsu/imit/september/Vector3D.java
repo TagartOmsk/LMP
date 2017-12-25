@@ -1,5 +1,4 @@
-package com.company;
-import com.company.Point3D;
+package ru.omsu.imit.september;
 
 public class Vector3D {
     private double x,y,z;
@@ -38,7 +37,7 @@ public class Vector3D {
         this.y=y;
         this.z=z;
     }
-    public Vector3D(Point3D A,Point3D B){
+    public Vector3D(Point3D A, Point3D B){
         this.x=B.getX()-A.getX();
         this.y=B.getY()-A.getY();
         this.z=B.getZ()-A.getZ();

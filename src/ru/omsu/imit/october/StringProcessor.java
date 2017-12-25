@@ -1,4 +1,4 @@
-package com.company;
+package ru.omsu.imit.october;
 
 public class StringProcessor {
     private static class ArgumentUnderZero extends RuntimeException{

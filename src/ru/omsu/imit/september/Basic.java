@@ -1,4 +1,4 @@
-package com.company;
+package ru.omsu.imit.september;
 
 import java.util.Arrays;
 
@@ -174,14 +174,14 @@ public class Basic {
     }
 
     public static double SeventhTask(double x, double precision){
-        double sum1=0,next;
-        int count=0;
-        next=1;
-        sum1+=next;
-        while(Math.abs(next)>=precision){
+        double sum1 = 0,next;
+        int count = 0;
+        next = 1;
+        sum1 += next;
+        while(Math.abs(next) >= precision){
             count++;
-            next*=x/count;
-            sum1+=next;
+            next *= x/count;
+            sum1 += next;
         }
         return sum1;
     }

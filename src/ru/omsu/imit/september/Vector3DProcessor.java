@@ -1,5 +1,4 @@
-package com.company;
-import com.company.Vector3D;
+package ru.omsu.imit.september;
 
 public class Vector3DProcessor {
     public static Vector3D sum(Vector3D A, Vector3D B){

@@ -1,4 +1,4 @@
-package com.company;
+package ru.omsu.imit.september;
 
 public class Point3D {
     private double x,y,z;
